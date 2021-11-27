@@ -1920,7 +1920,7 @@ MonoBehaviour:
   beamCollisionMask:
     serializedVersion: 2
     m_Bits: 64
-  rotationSpeed: 5
+  rotationSpeed: 15
   aimLine: {fileID: 194932487}
 --- !u!212 &1967353669
 SpriteRenderer:
