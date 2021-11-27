@@ -20,10 +20,10 @@ public class PlayerObject : MovingObject {
     private int attackDamage = 1;
     public int AttackDamage => attackDamage;
     
-    protected override void Init(MovingObjectInfo movingObjectInfo) {
-        base.Init(movingObjectInfo);
+    protected override void Init(ObjectInfo objectInfo) {
+        base.Init(objectInfo);
         
-        if (movingObjectInfo is PlayerObjectInfo playerObjectInfo) {
+        if (objectInfo is PlayerObjectInfo playerObjectInfo) {
             attackDamage = playerObjectInfo.AttackDamage;
         }
     }

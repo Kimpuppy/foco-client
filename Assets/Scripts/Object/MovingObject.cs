@@ -6,7 +6,7 @@ using UnityEngine;
 // ex) object.Init(new MovingObjectInfo {
 //     Hp = 10,
 // })
-public class MovingObjectInfo {
+public class MovingObjectInfo : ObjectInfo{
     public int Hp;
 }
 
@@ -15,8 +15,12 @@ public class MovingObject : BaseObject {
     protected int hp;
     public int Hp => hp;
     
-    protected virtual void Init(MovingObjectInfo movingObjectInfo) {
-        hp = movingObjectInfo.Hp;
+    protected virtual void Init(ObjectInfo objectInfo) {
+        base.Init(objectInfo);
+        
+        if (objectInfo is MovingObjectInfo movingObjectInfo) {
+            hp = movingObjectInfo.Hp;
+        }
     }
     
     protected override void Start() {
