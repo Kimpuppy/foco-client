@@ -12,7 +12,7 @@ public class ConfineLine : MonsterObject
         Init(new MovingObjectInfo() { Hp = 15 });
     }
 
-    protected override void Init(MovingObjectInfo movingObjectInfo)
+    public override void Init(ObjectInfo movingObjectInfo)
     {
         base.Init(movingObjectInfo);
     }

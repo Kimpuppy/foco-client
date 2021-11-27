@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class Iron : MonsterObject
 {
     private float fallSpeed;
 
-    protected override void Init(MovingObjectInfo movingObjectInfo)
+    public override void Init(ObjectInfo movingObjectInfo)
     {
         base.Init(movingObjectInfo);
     }
