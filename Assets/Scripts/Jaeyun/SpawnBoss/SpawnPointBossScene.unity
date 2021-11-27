@@ -776,7 +776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615ed517c3084434acd62b60cfce578f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
+  hp: 30
   animationPlayer: {fileID: 636911309}
   spawnCenter: {fileID: 145896324}
   spawnMonsters:
@@ -789,7 +789,7 @@ MonoBehaviour:
   - {fileID: 1415644629}
   - {fileID: 1735347245}
   rotateTime: 5
-  startPattern: {fileID: 11400000, guid: 6dd2cd79408bfab4ab207ee6f598f14d, type: 2}
+  startPattern: {fileID: 11400000, guid: 11d68da2ce1bcfd4db831a91eddc26a9, type: 2}
   needRespawnCount: 3
   rotateSpeed: 20
 --- !u!114 &636911309

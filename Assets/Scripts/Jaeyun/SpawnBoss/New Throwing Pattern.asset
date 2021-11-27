@@ -9,13 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd0080d983454c5d97125d942d4aa083, type: 3}
-  m_Name: New Rush Pattern
+  m_Script: {fileID: 11500000, guid: ccbbdf3ad4f4409b8b7b0d2343d260c6, type: 3}
+  m_Name: New Throwing Pattern
   m_EditorClassIdentifier: 
   enterPatternAnimation: {fileID: 0}
   exitPatternAnimation: {fileID: 0}
-  rushSpeed: 6000
-  rushCount: 3
-  rushDelay: 4
+  throwingSpeed: 20
+  throwingDelay: 3
   spawnPattern: {fileID: 11400000, guid: a8720a6fc304a0c4186bca66790fbad8, type: 2}
-  anotherAttackPattern: {fileID: 11400000, guid: 11d68da2ce1bcfd4db831a91eddc26a9, type: 2}
+  anotherAttackPattern: {fileID: 11400000, guid: 6dd2cd79408bfab4ab207ee6f598f14d, type: 2}

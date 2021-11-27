@@ -1,9 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using DG.Tweening;
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace Jaeyun.SpawnBoss
@@ -28,8 +25,11 @@ namespace Jaeyun.SpawnBoss
 
         public float rotateSpeed;
 
-        public bool IsNeedToSpawn => spawnMonsters.Count(monster => monster.IsActive) < needRespawnCount;
-        
+        public int ActiveMonsterCount => spawnMonsters.Count(monster => monster.IsActive); 
+        public bool IsNeedToSpawn =>  ActiveMonsterCount <= needRespawnCount;
+
+
+        public List<SpawnMonster> SpawnMonsters => spawnMonsters;
         
         protected override IEnumerator PlayPattern()
         {
@@ -48,6 +48,12 @@ namespace Jaeyun.SpawnBoss
         public void ReSpawn()
         {
             spawnMonsters.ForEach(spawnMonster => spawnMonster.Activate());
+        }
+
+        protected override void OnDead()
+        {
+            base.OnDead();
+            _currentPattern.StopPattern();
         }
 
         private void LateUpdate()

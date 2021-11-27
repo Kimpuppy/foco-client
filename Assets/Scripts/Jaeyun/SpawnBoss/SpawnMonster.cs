@@ -5,7 +5,7 @@ namespace Jaeyun.SpawnBoss
     public class SpawnMonster : MonsterObject
     {
         
-        private bool _isAcitve;
+        private bool _isAcitve = true;
 
         [SerializeField]
         private Collider2D collider;
@@ -13,6 +13,8 @@ namespace Jaeyun.SpawnBoss
         private SpriteRenderer spriteRenderer;
 
         public bool IsActive => _isAcitve;
+        
+        
 
         public void Activate()
         {
@@ -41,7 +43,6 @@ namespace Jaeyun.SpawnBoss
         protected override void OnDead()
         {
             base.OnDead();
-            Debug.Log("Dead");
             DeActivate();
         }
         
