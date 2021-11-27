@@ -199,7 +199,11 @@ public class TankerBoss : BossObject
 
         if (ironObj.TryGetComponent(out Iron iron))
         {
-            iron.Active(fallspeed);
+            iron.Init(new IronInfo 
+            {
+                Damage = 2,
+                FallSpeed = fallspeed,
+            });
         }
     }
 
