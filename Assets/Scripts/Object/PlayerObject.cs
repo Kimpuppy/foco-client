@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class PlayerObjectInfo : MovingObjectInfo {
+    public int AttackDamage;
+}
+
 public class PlayerObject : MovingObject {
     private Vector2 clickPos = Vector2.zero;
     private Vector2 dragPos = Vector2.zero;
@@ -15,6 +19,14 @@ public class PlayerObject : MovingObject {
     
     private int attackDamage = 1;
     public int AttackDamage => attackDamage;
+    
+    protected override void Init(MovingObjectInfo movingObjectInfo) {
+        base.Init(movingObjectInfo);
+        
+        if (movingObjectInfo is PlayerObjectInfo playerObjectInfo) {
+            attackDamage = playerObjectInfo.AttackDamage;
+        }
+    }
     
     protected override void Start() {
         base.Start();

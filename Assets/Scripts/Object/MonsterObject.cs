@@ -3,9 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class MonsterObjectInfo : MovingObjectInfo {
+    public int Damage;
+}
+
 public class MonsterObject : MovingObject {
     private int damage = 0;
     public int Damage => damage;
+    
+    protected override void Init(MovingObjectInfo movingObjectInfo) {
+        base.Init(movingObjectInfo);
+        
+        if (movingObjectInfo is MonsterObjectInfo monsterObjectInfo) {
+            damage = monsterObjectInfo.Damage;
+        }
+    }
     
     protected override void Start() {
         base.Start();

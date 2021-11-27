@@ -2,10 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class MovingObjectInfo {
+    public int Hp;
+}
+
 public class MovingObject : BaseObject {
     [SerializeField]
     protected int hp;
     public int Hp => hp;
+    
+    protected virtual void Init(MovingObjectInfo movingObjectInfo) {
+        hp = movingObjectInfo.Hp;
+    }
     
     protected override void Start() {
         base.Start();
