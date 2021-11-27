@@ -175,7 +175,7 @@ MonoBehaviour:
   weakPointDamage: 6
   normalDamage: 1
   animationPlayer: {fileID: 7976498314161589482}
-  startPattern: {fileID: 11400000, guid: ff631905c58187e419c2298ae7cc7ee5, type: 2}
+  startPattern: {fileID: 11400000, guid: 2067e82e092b308409a7a41afeac7c67, type: 2}
   beam: {fileID: 7976498315158006661}
   weakPointCandidates:
   - {fileID: 7976498315880824232}

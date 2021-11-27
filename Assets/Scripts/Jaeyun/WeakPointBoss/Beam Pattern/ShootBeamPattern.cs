@@ -54,8 +54,7 @@ namespace Jaeyun
 
         protected override void OnStopPattern()
         {
-            Destroy(shootBeam.gameObject);
-            _beam.StopChasePlayer();
+            
         }
     }
 }

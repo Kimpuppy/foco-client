@@ -47,7 +47,7 @@ namespace Jaeyun
 
         protected override void OnStopPattern()
         {
-            _beam.DeActivateBeam().Forget();
+            
         }
     }
 }
