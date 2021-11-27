@@ -58,7 +58,7 @@ public class PlayerObject : MovingObject {
 
     protected override void OnDead() {
         base.OnDead();
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
     
     protected virtual void OnCollisionEnter2D(Collision2D collision) {
