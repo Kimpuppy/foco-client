@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Object 생성 후 Info로 Init함
+// ex) object.Init(new MovingObjectInfo {
+//     Hp = 10,
+// })
 public class MovingObjectInfo {
     public int Hp;
 }
