@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Security.Cryptography.X509Certificates;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -8,9 +7,6 @@ namespace Jaeyun
 {
     public class WeakPointBossBeam : MonoBehaviour
     {
-        [SerializeField]
-        private int damage;
-
         [SerializeField]
         private Transform beamCollider;
 
@@ -54,14 +50,6 @@ namespace Jaeyun
         private void DeActivateAimLine()
         {
             aimLine.enabled = false;
-        }
-
-        public async UniTask Shoot()
-        {
-            DeActivateAimLine();
-            await ActiveBeam();
-            await DeActivateBeam();
-            ActivateAimLine();
         }
 
         IEnumerator ChasePlayerRoutine()

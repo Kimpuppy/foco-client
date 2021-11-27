@@ -17,3 +17,4 @@ MonoBehaviour:
   shootCount: 3
   shootDelay: 1
   makeWeakPointPattern: {fileID: 11400000, guid: bd9d5a9c41b647888a0cc6d234e9cc63, type: 2}
+  shootBeam: {fileID: 3677312098580023711, guid: a09ab947a4029fc4c8177f3c80eba7c6, type: 3}

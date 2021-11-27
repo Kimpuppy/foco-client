@@ -1898,7 +1898,7 @@ GameObject:
   - component: {fileID: 1967353669}
   - component: {fileID: 1967353667}
   m_Layer: 0
-  m_Name: Beam
+  m_Name: Rotate Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1916,7 +1916,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7162f28d6f49f5a6ef2b137979a8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
   beamCollider: {fileID: 503927}
   beamCollisionMask:
     serializedVersion: 2

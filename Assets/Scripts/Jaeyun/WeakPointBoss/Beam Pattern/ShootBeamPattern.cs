@@ -16,12 +16,19 @@ namespace Jaeyun
 
         [SerializeField] private MakeWeakPointPattern makeWeakPointPattern;
 
+        [SerializeField] private ShootBeam shootBeam;
+
+        private ShootBeam _shootBeam;
+
         public override void EnterPattern()
         {
             _weakPointBoss = (WeakPointBoss)_boss;
             _beam = _weakPointBoss.Beam;
             _beam.ChasePlayer();
             _thisPatternRoutine = _boss.StartCoroutine(ShootPattern());
+
+            _shootBeam = Instantiate(shootBeam);
+            _shootBeam.gameObject.SetActive(false);
         }
 
         IEnumerator ShootPattern()
@@ -30,7 +37,9 @@ namespace Jaeyun
 
             for(int i = 0; i < shootCount; i++)
             {
-                yield return _beam.Shoot().ToCoroutine();
+                _shootBeam.gameObject.SetActive(true);
+                _shootBeam.transform.position = _boss.transform.position;
+                _shootBeam.Shoot();
                 yield return new WaitForSeconds(shootDelay);
             }
             ExitPattern();
@@ -39,11 +48,13 @@ namespace Jaeyun
         public override void ExitPattern()
         {
             _beam.StopChasePlayer();
+            Destroy(_shootBeam.gameObject);
             _weakPointBoss.StartPattern(makeWeakPointPattern);
         }
 
         protected override void OnStopPattern()
         {
+            Destroy(shootBeam.gameObject);
             _beam.StopChasePlayer();
         }
     }
