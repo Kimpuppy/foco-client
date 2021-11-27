@@ -55,14 +55,5 @@ namespace Jaeyun
             Destroy(gameObject);
         }
 
-        protected virtual void OnPlayerAttacked() 
-        {
-            DamageTo(normalDamage);
-        }
-    
-        protected virtual void OnPlayerDamaged() {
-        
-        }
-
     }
 }

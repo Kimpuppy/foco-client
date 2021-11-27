@@ -8,7 +8,7 @@ public class MonsterObjectInfo : MovingObjectInfo {
 }
 
 public class MonsterObject : MovingObject {
-    private int damage = 0;
+    protected int damage = 0;
     public int Damage => damage;
     
     public override void Init(ObjectInfo objectInfo) {
