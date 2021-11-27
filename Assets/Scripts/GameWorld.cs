@@ -9,7 +9,7 @@ public class GameWorld : MonoSingleton<GameWorld> {
     private BossObject worldBossObject;
     public BossObject WorldBossObject => worldBossObject;
     
-    private List<MonsterObject> worldMonsterObjectList;
+    private List<MonsterObject> worldMonsterObjectList = new List<MonsterObject>();
     public List<MonsterObject> WorldMonsterObjectList => worldMonsterObjectList;
     
     public PlayerObject SpawnPlayer(GameObject prefab, Vector3 position, float angle = 0f) {
@@ -24,8 +24,8 @@ public class GameWorld : MonoSingleton<GameWorld> {
         return bossObject;
     }
     
-    public MonsterObject SpawnMonster(GameObject prefab, Vector3 position, Vector3 angle) {
-        MonsterObject monsterObject = Instantiate(prefab, position, Quaternion.Euler(angle)).GetComponent<MonsterObject>();
+    public MonsterObject SpawnMonster(GameObject prefab, Vector3 position, float angle = 0f) {
+        MonsterObject monsterObject = Instantiate(prefab, position, Quaternion.Euler(new Vector3(0, 0, angle))).GetComponent<MonsterObject>();
         worldMonsterObjectList.Add(monsterObject);
         return monsterObject;
     }

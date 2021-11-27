@@ -15,7 +15,10 @@ public class MovingObject : BaseObject {
     protected int hp;
     public int Hp => hp;
     
-    protected virtual void Init(ObjectInfo objectInfo) {
+    protected int maxHp;
+    public int MaxHp => maxHp;
+    
+    public override void Init(ObjectInfo objectInfo) {
         base.Init(objectInfo);
         
         if (objectInfo is MovingObjectInfo movingObjectInfo) {
@@ -25,6 +28,8 @@ public class MovingObject : BaseObject {
     
     protected override void Start() {
         base.Start();
+        
+        maxHp = hp;
     }
     
     protected override void Update() {
@@ -33,16 +38,28 @@ public class MovingObject : BaseObject {
 
     public virtual void DamageTo(int damage) {
         hp -= damage;
-        OnDamaged();
-        
         if (hp <= 0) {
             OnDead();
         }
+        
+        OnDamaged();
     }
 
     protected virtual void OnDamaged() {
     }
-    
+
     protected virtual void OnDead() {
+    }
+    
+    public virtual void HealTo(int heal) {
+        hp += heal;
+        if (hp >= maxHp) {
+            hp = maxHp;
+        }
+        
+        OnHeal();
+    }
+    
+    protected virtual void OnHeal() {
     }
 }

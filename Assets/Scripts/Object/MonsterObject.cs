@@ -11,7 +11,7 @@ public class MonsterObject : MovingObject {
     private int damage = 0;
     public int Damage => damage;
     
-    protected override void Init(ObjectInfo objectInfo) {
+    public override void Init(ObjectInfo objectInfo) {
         base.Init(objectInfo);
         
         if (objectInfo is MonsterObjectInfo monsterObjectInfo) {
