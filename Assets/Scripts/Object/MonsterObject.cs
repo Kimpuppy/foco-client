@@ -23,23 +23,27 @@ public class MonsterObject : MovingObject {
         base.OnDead();
     }
     
-    protected virtual void OnPlayerAttacked(PlayerObject playerObject) {
+    protected virtual void OnPlayerAttackedToMonster(PlayerObject playerObject) {
     }
     
-    protected virtual void OnPlayerDamaged(PlayerObject playerObject) {
-        playerObject.DamageTo(damage);
+    protected virtual void OnPlayerDamagedByMonster(PlayerObject playerObject) {
+        //playerObject.DamageTo(damage);
+    }
+    
+    protected virtual void OnCollisionToPlayer(PlayerObject playerObject) {
+        if (playerObject.IsAttacking) {
+            OnPlayerAttackedToMonster(playerObject);
+        }
+        else {
+            OnPlayerDamagedByMonster(playerObject);
+        }
     }
     
     protected virtual void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
             PlayerObject playerObject = collision.gameObject.GetComponent<PlayerObject>();
             if (playerObject != null) {
-                if (playerObject.IsAttacking) {
-                    OnPlayerAttacked(playerObject);
-                }
-                else {
-                    OnPlayerDamaged(playerObject);
-                }
+                OnCollisionToPlayer(playerObject);
             }
         }
     }
