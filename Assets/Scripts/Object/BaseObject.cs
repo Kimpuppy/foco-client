@@ -10,14 +10,12 @@ public class BaseObject : MonoBehaviour {
     protected Rigidbody2D rigidbody;
     
     protected virtual void Init() {
-        
     }
     
     protected virtual void Start() {
         rigidbody = GetComponent<Rigidbody2D>();
     }
     
-    protected void Update() {
-        
+    protected virtual void Update() {
     }
 }
