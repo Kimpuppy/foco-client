@@ -12,29 +12,18 @@ public class MonsterObject : MovingObject {
         base.Update();
     }
 
-    public void DamageTo(int damage) {
-        hp -= damage;
-        OnDamaged();
-        
-        if (hp <= 0) {
-            OnDead();
-        }
-    }
-
     protected virtual void OnDamaged() {
-        
+        base.OnDamaged();
     }
     
     protected virtual void OnDead() {
-        
+        base.OnDead();
     }
 
     protected virtual void OnPlayerAttacked() {
-        
     }
     
     protected virtual void OnPlayerDamaged() {
-        
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision) {

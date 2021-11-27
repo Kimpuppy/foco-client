@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour {
         cameraObject = GetComponent<Camera>();
     }
 
-    private void LateUpdate() {
+    private void FixedUpdate() {
         if (Target != null) {
             anchorPoint = Vector3.Lerp(anchorPoint, Target.position, Speed * Time.deltaTime);
         }
