@@ -20,12 +20,6 @@ namespace Jaeyun
 
         public LineRenderer aimLine;
 
-        private void Start()
-        {
-            beamCollider.gameObject.SetActive(false);
-            aimLine.enabled = false;
-        }
-
         public async UniTask ActiveBeam()
         {
             beamCollider.gameObject.SetActive(true);
