@@ -160,7 +160,7 @@ MonoBehaviour:
   BossPrefab: {fileID: 6854515614591713447, guid: 1a1884ef11e50344783c8d2ad0431dc6, type: 3}
   BossHp: 10
   BossDamage: 1
-  BossSpawnPosition: {x: 5, y: 0}
+  BossSpawnPosition: {x: 0, y: 0}
   KorBossName: "\uD14C\uC2A4\uD2B8 \uBCF4\uC2A4"
   EngBossName: Test Boss
 --- !u!4 &99487749

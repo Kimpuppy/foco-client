@@ -76,4 +76,9 @@ public class CoreAttackBoss : BossObject {
             yield return new WaitForSeconds(1.0f);
         }
     }
+    
+    protected override void OnDead() {
+        base.OnDead();
+        Destroy(gameObject);
+    }
 }
