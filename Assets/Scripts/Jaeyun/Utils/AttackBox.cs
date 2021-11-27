@@ -12,7 +12,6 @@ namespace Jaeyun
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                Debug.Log("Damage");
                 GameWorld.Instance.WorldPlayerObject?.DamageTo(damage);
             }
         }
