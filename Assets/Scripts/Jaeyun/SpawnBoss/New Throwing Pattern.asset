@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enterPatternAnimation: {fileID: 0}
   exitPatternAnimation: {fileID: 0}
-  throwingSpeed: 20
-  throwingDelay: 3
+  throwingSpeed: 23
+  throwingDelay: 2
   spawnPattern: {fileID: 11400000, guid: a8720a6fc304a0c4186bca66790fbad8, type: 2}
   anotherAttackPattern: {fileID: 11400000, guid: 6dd2cd79408bfab4ab207ee6f598f14d, type: 2}

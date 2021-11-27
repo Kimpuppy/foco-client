@@ -54,6 +54,7 @@ namespace Jaeyun.SpawnBoss
         {
             base.OnDead();
             _currentPattern.StopPattern();
+            Destroy(gameObject);
         }
 
         private void LateUpdate()

@@ -46,13 +46,13 @@ namespace Jaeyun
         
         protected override void OnDamaged() 
         {
-            Debug.Log("Damaged!");
+            
         }
     
         protected override void OnDead() 
         {
-            Debug.Log("Dead!");
             _currentPattern.StopPattern();
+            Destroy(gameObject);
         }
 
         protected virtual void OnPlayerAttacked() 
