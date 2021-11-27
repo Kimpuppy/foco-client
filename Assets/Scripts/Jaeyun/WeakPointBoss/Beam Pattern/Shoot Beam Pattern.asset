@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65976c4bb10e41d692fbb38c3b139692, type: 3}
-  m_Name: Make Weak Point Pattern
+  m_Script: {fileID: 11500000, guid: c427f7611e744ae099ed04c854363709, type: 3}
+  m_Name: Shoot Beam Pattern
   m_EditorClassIdentifier: 
   enterPatternAnimation: {fileID: 0}
   exitPatternAnimation: {fileID: 0}
-  patternDuration: 10
-  activateWeakPointCount: 2
-  rotateBeamPattern: {fileID: 11400000, guid: 2067e82e092b308409a7a41afeac7c67, type: 2}
-  shootBeamPattern: {fileID: 11400000, guid: ff631905c58187e419c2298ae7cc7ee5, type: 2}
+  shootCount: 3
+  shootDelay: 1
+  makeWeakPointPattern: {fileID: 11400000, guid: bd9d5a9c41b647888a0cc6d234e9cc63, type: 2}

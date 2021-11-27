@@ -7,7 +7,6 @@ namespace Jaeyun
     [RequireComponent(typeof(CircleCollider2D))]
     public class WeakPoint : MonoBehaviour
     {
-
         [SerializeField] private WeakPointBoss boss;
 
         private Action<WeakPoint> _onWeakPointAttacked;

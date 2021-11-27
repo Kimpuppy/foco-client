@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Jaeyun
@@ -12,6 +13,8 @@ namespace Jaeyun
         [SerializeField]
         protected AnimationClip exitPatternAnimation;
 
+        protected Coroutine _thisPatternRoutine;
+
         public void Init(BossObject boss, AnimationPlayer animationPlayer)
         {
             _boss = boss;
@@ -20,6 +23,14 @@ namespace Jaeyun
 
         public abstract void EnterPattern();
         public abstract void ExitPattern();
+
+        protected abstract void OnStopPattern();
+
+        public void StopPattern()
+        {
+            _boss.StopCoroutine(_thisPatternRoutine);
+            OnStopPattern();
+        }
         
         protected void PlayAnimation(AnimationClip clip)
         {

@@ -10,33 +10,44 @@ namespace Jaeyun
         private WeakPointBoss _weakPointBoss;
         private WeakPointBossBeam _beam;
 
-        public int rotationCount = 2;
-        public float rotationSpeed = 5;
+        [SerializeField]
+        private int rotationCount = 2;
+        [SerializeField]
+        private float rotationSpeed = 5;
+        [SerializeField]
+        private  float attackDelay;
 
-        public float attackDelay;
+        [SerializeField] private MakeWeakPointPattern weakPointPattern;
         
         public override void EnterPattern()
         {
             _weakPointBoss = (WeakPointBoss)_boss;
             _beam = _weakPointBoss.Beam;
             
-            BeamAttack().Forget();
+             _thisPatternRoutine = _weakPointBoss.StartCoroutine(BeamAttack().ToCoroutine());
         }
 
-        private async UniTaskVoid BeamAttack()
+        private async UniTask BeamAttack()
         {
             for (int i = 0; i < rotationCount; i++)
             {
-                _beam.ActiveBeam();
+                await _beam.ActiveBeam();
                 await _beam.RotateBeam(rotationSpeed).ToUniTask();
-                _beam.DeActivateBeam();
+                await _beam.DeActivateBeam();
                 await UniTask.Delay(TimeSpan.FromSeconds(attackDelay));
             }
+            
+            ExitPattern();
         }
 
         public override void ExitPattern()
         {
-            
+            _weakPointBoss.StartPattern(weakPointPattern);
+        }
+
+        protected override void OnStopPattern()
+        {
+            _beam.DeActivateBeam().Forget();
         }
     }
 }

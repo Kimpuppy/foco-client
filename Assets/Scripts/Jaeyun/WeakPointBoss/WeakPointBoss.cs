@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Jaeyun
 {
@@ -23,6 +22,8 @@ namespace Jaeyun
 
         public WeakPointBossBeam Beam => beam;
 
+        private Pattern _currentPattern;
+
 
         protected override IEnumerator PlayPattern()
         {
@@ -34,6 +35,7 @@ namespace Jaeyun
         {
             pattern.Init(this, animationPlayer);
             pattern.EnterPattern();
+            _currentPattern = pattern;
         }
 
         public void WeakPointAttack()
@@ -50,6 +52,7 @@ namespace Jaeyun
         protected override void OnDead() 
         {
             Debug.Log("Dead!");
+            _currentPattern.StopPattern();
         }
 
         protected virtual void OnPlayerAttacked() 

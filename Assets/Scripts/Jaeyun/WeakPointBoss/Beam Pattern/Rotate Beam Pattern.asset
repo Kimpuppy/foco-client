@@ -17,3 +17,4 @@ MonoBehaviour:
   rotationCount: 2
   rotationSpeed: 5
   attackDelay: 2
+  weakPointPattern: {fileID: 11400000, guid: bd9d5a9c41b647888a0cc6d234e9cc63, type: 2}

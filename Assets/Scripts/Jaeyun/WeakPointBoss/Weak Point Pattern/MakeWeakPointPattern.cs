@@ -19,6 +19,9 @@ namespace Jaeyun
 
         private List<WeakPoint> _activeWeakPoints;
 
+        [SerializeField] private RotateBeamPattern rotateBeamPattern;
+        [SerializeField] private ShootBeamPattern shootBeamPattern;
+
         private void GetWeakPointCandidates()
         {
             _weakPointCandidates = _weakPointBoss.WeakPointCandidates;
@@ -32,7 +35,7 @@ namespace Jaeyun
 
             MakeWeakPoints();
 
-            CheckPatternDone().ToUniTask().Forget();
+            _thisPatternRoutine = _weakPointBoss.StartCoroutine(CheckPatternDone());
         }
 
         private void MakeWeakPoints()
@@ -90,6 +93,21 @@ namespace Jaeyun
         {
             DeActivateAllWeakPoint();
             PlayAnimation(exitPatternAnimation);
+            var random = new Random();
+            var value = random.Next(0, 2);
+            if (value == 0)
+            {
+                _weakPointBoss.StartPattern(rotateBeamPattern);
+            }
+            else if (value == 1)
+            {
+                _weakPointBoss.StartPattern(shootBeamPattern);
+            }
+        }
+
+        protected override void OnStopPattern()
+        {
+            DeActivateAllWeakPoint();
         }
 
         private void DeActivateAllWeakPoint()
@@ -99,8 +117,6 @@ namespace Jaeyun
                 weakPoint.DeActivate();
             }
         }
-
-
 
 
         #region Helper Function
