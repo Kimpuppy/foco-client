@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MovingObject : BaseObject {
+    [SerializeField]
     protected int hp;
     public int Hp => hp;
     
