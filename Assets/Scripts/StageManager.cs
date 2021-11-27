@@ -17,7 +17,7 @@ public class StageManager : MonoSingleton<GameManager> {
     public int BossHp;
     public int BossDamage;
     public Vector2 BossSpawnPosition = Vector2.zero;
-
+    
     [Header("Boss Name")]
     public string KorBossName;
     public string EngBossName;
