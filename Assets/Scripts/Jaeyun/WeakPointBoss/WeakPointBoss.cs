@@ -55,14 +55,5 @@ namespace Jaeyun
             _currentPattern.StopPattern();
         }
 
-        protected virtual void OnPlayerAttacked() 
-        {
-            DamageTo(normalDamage);
-        }
-    
-        protected virtual void OnPlayerDamaged() {
-        
-        }
-
     }
 }
