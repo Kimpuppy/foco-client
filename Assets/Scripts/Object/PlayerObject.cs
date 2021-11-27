@@ -12,14 +12,14 @@ public class PlayerObject : MovingObject {
     
     private bool isAttacking = false;
     public bool IsAttacking => isAttacking;
-
+    
     private int attackDamage = 1;
     public int AttackDamage => attackDamage;
-
+    
     protected override void Start() {
         base.Start();
     }
-
+    
     protected override void Update() {
         base.Update();
         
@@ -51,11 +51,11 @@ public class PlayerObject : MovingObject {
     public override void DamageTo(int damage) {
         base.DamageTo(damage);
     }
-
+    
     protected override void OnDamaged() {
         base.OnDamaged();
     }
-
+    
     protected override void OnDead() {
         base.OnDead();
         //Destroy(gameObject);
