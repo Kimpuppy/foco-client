@@ -12,10 +12,17 @@ public class PlayerObject : MovingObject {
     
     private bool isAttacking = false;
     public bool IsAttacking => isAttacking;
-    
-    protected virtual void Update() {
-        base.Update();
 
+    private int attackDamage = 1;
+    public int AttackDamage => attackDamage;
+
+    protected override void Start() {
+        base.Start();
+    }
+
+    protected override void Update() {
+        base.Update();
+        
         Move();
         
         velocity = rigidbody.velocity.magnitude;
@@ -38,6 +45,30 @@ public class PlayerObject : MovingObject {
             dragPower = 0;
             clickPos = Vector2.zero;
             dragPos = Vector2.zero;
+        }
+    }
+    
+    public override void DamageTo(int damage) {
+        base.DamageTo(damage);
+    }
+
+    protected override void OnDamaged() {
+        base.OnDamaged();
+    }
+
+    protected override void OnDead() {
+        base.OnDead();
+        Destroy(gameObject);
+    }
+    
+    protected virtual void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Monster")) {
+            MonsterObject monsterObject = collision.gameObject.GetComponent<MonsterObject>();
+            if (monsterObject != null) {
+                if (isAttacking) {
+                    monsterObject.DamageTo(attackDamage);
+                }
+            }
         }
     }
 }

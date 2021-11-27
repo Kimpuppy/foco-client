@@ -4,37 +4,41 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterObject : MovingObject {
-    protected virtual void Start() {
+    private int damage = 0;
+    public int Damage => damage;
+    
+    protected override void Start() {
         base.Start();
     }
     
-    protected virtual void Update() {
+    protected override void Update() {
         base.Update();
     }
-
-    protected virtual void OnDamaged() {
+    
+    protected override void OnDamaged() {
         base.OnDamaged();
     }
     
-    protected virtual void OnDead() {
+    protected override void OnDead() {
         base.OnDead();
     }
-
-    protected virtual void OnPlayerAttacked() {
+    
+    protected virtual void OnPlayerAttacked(PlayerObject playerObject) {
     }
     
-    protected virtual void OnPlayerDamaged() {
+    protected virtual void OnPlayerDamaged(PlayerObject playerObject) {
+        playerObject.DamageTo(damage);
     }
-
+    
     protected virtual void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
             PlayerObject playerObject = collision.gameObject.GetComponent<PlayerObject>();
             if (playerObject != null) {
-                if (playerObject.Velocity > GameConstants.PLAYER_ATTACK_VELOCITY) {
-                    OnPlayerAttacked();
+                if (playerObject.IsAttacking) {
+                    OnPlayerAttacked(playerObject);
                 }
                 else {
-                    OnPlayerDamaged();
+                    OnPlayerDamaged(playerObject);
                 }
             }
         }

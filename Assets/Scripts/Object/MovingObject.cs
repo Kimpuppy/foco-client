@@ -6,15 +6,15 @@ public class MovingObject : BaseObject {
     protected int hp;
     public int Hp => hp;
     
-    protected virtual void Start() {
+    protected override void Start() {
         base.Start();
     }
     
-    protected virtual void Update() {
+    protected override void Update() {
         base.Update();
     }
 
-    public void DamageTo(int damage) {
+    public virtual void DamageTo(int damage) {
         hp -= damage;
         OnDamaged();
         
@@ -24,10 +24,8 @@ public class MovingObject : BaseObject {
     }
 
     protected virtual void OnDamaged() {
-        
     }
     
     protected virtual void OnDead() {
-        
     }
 }
