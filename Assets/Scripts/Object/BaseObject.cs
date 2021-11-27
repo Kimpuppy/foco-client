@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class BaseObject : MonoBehaviour {
     protected Rigidbody2D rigidbody;
+    public Rigidbody2D Rigidbody => rigidbody;
     
     protected virtual void Init() {
     }
