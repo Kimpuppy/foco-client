@@ -41,7 +41,6 @@ namespace Jaeyun.SpawnBoss
 
         private void Throwing()
         {
-            Debug.Log("Throwing!");
             var minDist = float.MaxValue;
             var player = FindObjectOfType<PlayerObject>();
 

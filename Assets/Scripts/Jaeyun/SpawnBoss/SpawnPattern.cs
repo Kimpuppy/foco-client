@@ -26,6 +26,8 @@ namespace Jaeyun.SpawnBoss
             yield return new WaitForSeconds(time);
             _spawnBoss = (SpawnBoss)_boss;
             _spawnBoss.ReSpawn();
+            
+            ExitPattern();
         }
 
         public override void ExitPattern()

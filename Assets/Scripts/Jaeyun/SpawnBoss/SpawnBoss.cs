@@ -28,6 +28,8 @@ namespace Jaeyun.SpawnBoss
         public int ActiveMonsterCount => spawnMonsters.Count(monster => monster.IsActive); 
         public bool IsNeedToSpawn =>  ActiveMonsterCount <= needRespawnCount;
 
+        [SerializeField] private Collider2D thisCollider;
+
 
         public List<SpawnMonster> SpawnMonsters => spawnMonsters;
         
@@ -60,6 +62,22 @@ namespace Jaeyun.SpawnBoss
         private void LateUpdate()
         {
             RotateSpawnCenter();
+        }   
+        
+        protected override void OnPlayerAttackedToMonster(PlayerObject playerObject) 
+        {
+            DamageTo(playerObject.AttackDamage);
+        }
+
+        protected override void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player") && collision.contacts[0].otherCollider == thisCollider) 
+            {
+                PlayerObject playerObject = collision.gameObject.GetComponent<PlayerObject>();
+                if (playerObject != null) {
+                    OnCollisionToPlayer(playerObject);
+                }
+            }
         }
 
         private void RotateSpawnCenter()

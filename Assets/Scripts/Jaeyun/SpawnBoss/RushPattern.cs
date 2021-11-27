@@ -36,7 +36,6 @@ namespace Jaeyun.SpawnBoss
             for (int i = 0; i < rushCount; i++)
             {
                 Rush();
-                yield return new WaitForSeconds(rushDelay);
             }
             ExitPattern();
         }

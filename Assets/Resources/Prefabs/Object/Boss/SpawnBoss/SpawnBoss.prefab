@@ -992,6 +992,7 @@ MonoBehaviour:
   startPattern: {fileID: 11400000, guid: 11d68da2ce1bcfd4db831a91eddc26a9, type: 2}
   needRespawnCount: 3
   rotateSpeed: 20
+  thisCollider: {fileID: 2163953850631063401}
 --- !u!50 &2163953850631063402
 Rigidbody2D:
   serializedVersion: 4
