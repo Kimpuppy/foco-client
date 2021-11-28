@@ -69,8 +69,13 @@ namespace Jaeyun.SpawnBoss
                 var goMove = minDistMonster.transform.DOMove(targetPos, duration);
                 goMove.onComplete += () =>
                 {
-                    minDistMonster.transform.DOLocalMove(originPos, duration);
+                    var goLocalMove = minDistMonster.transform.DOLocalMove(originPos, duration);
+                    goLocalMove.onComplete += () => {
+                        minDistMonster.GhostSpriteObject.IsEnable = false;
+                    };
                 };
+
+                minDistMonster.GhostSpriteObject.IsEnable = true;
             }
         }
 

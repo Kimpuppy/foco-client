@@ -24,9 +24,15 @@ namespace Jaeyun
 
         private Pattern _currentPattern;
 
+        protected override void Start() {
+            base.Start();
+            damage = 1;
+        }
 
         protected override IEnumerator PlayPattern()
         {
+            base.PlayPattern();
+            
             StartPattern(startPattern);
             yield return null;
         }
@@ -42,17 +48,11 @@ namespace Jaeyun
         {
             DamageTo(weakPointDamage);   
         }
-        
-        
-        protected override void OnDamaged() 
-        {
-            
-        }
-    
+
         protected override void OnDead() 
         {
             _currentPattern.StopPattern();
-            Destroy(gameObject);
+            base.OnDead();
         }
 
     }

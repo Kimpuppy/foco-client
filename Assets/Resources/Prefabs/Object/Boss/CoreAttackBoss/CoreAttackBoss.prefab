@@ -635,11 +635,11 @@ MonoBehaviour:
   DefaultPosition: {x: 0, y: 0}
   MoveSpeed: 2
   CoreObjectSpawnPosition:
-  - {x: -13, y: 2.5}
-  - {x: 13, y: 2.5}
+  - {x: -13, y: 3.5}
+  - {x: 13, y: 3.5}
   - {x: -13, y: -4.5}
   - {x: 13, y: -4.5}
-  SpawnCoreObjectDelay: 10
+  SpawnCoreObjectDelay: 15
   CoreObjectPrefab: {fileID: 2253808099428486461, guid: 326dc88b2d2607844a5237954e1fb08a, type: 3}
   SpriteObject: {fileID: 3870445780207866560}
   SpriteAnimator: {fileID: 8923031832242602628}

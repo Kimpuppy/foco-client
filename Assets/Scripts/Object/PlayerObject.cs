@@ -16,6 +16,8 @@ public class PlayerObject : MovingObject {
     
     private bool isAttacking = false;
     public bool IsAttacking => isAttacking;
+
+    public GameObject DamageParticle;
     
     private int attackDamage = 1;
     public int AttackDamage => attackDamage;
@@ -23,6 +25,14 @@ public class PlayerObject : MovingObject {
     private CameraController cameraController;
 
     private SpriteRenderer spriteRenderer;
+
+    private Timer superArmorTimer;
+
+    public AudioClip MoveSound;
+    public AudioClip AttackSound;
+    public AudioClip DamageSound;
+    
+    public GameObject PowerMark;
     
     public override void Init(ObjectInfo objectInfo) {
         base.Init(objectInfo);
@@ -36,6 +46,11 @@ public class PlayerObject : MovingObject {
         base.Start();
         cameraController = Camera.main.GetComponent<CameraController>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        superArmorTimer = new Timer(1.0f, false); {
+            superArmorTimer.IsEnable = true;
+        };
+        UIManager.Instance.SetHpGauge(hp);
     }
     
     protected override void Update() {
@@ -46,16 +61,23 @@ public class PlayerObject : MovingObject {
         velocity = rigidbody.velocity.magnitude;
         isAttacking = (velocity > GameConstants.PLAYER_ATTACK_VELOCITY) ? true : false;
         spriteRenderer.flipX = (rigidbody.velocity.x < 0f) ? true : false;
+        spriteRenderer.color = Color.Lerp(spriteRenderer.color, Color.white, Time.deltaTime);
     }
     
     private void Move() {
         if (Input.GetMouseButtonDown(0)) {
             clickPos = Input.mousePosition;
+            PowerMark.SetActive(true);
         }
         if (Input.GetMouseButton(0)) {
             dragPos = Input.mousePosition;
 
             dragPower = Vector2.Distance(clickPos, dragPos) * 0.05f;
+            
+            Vector2 direction = (clickPos - dragPos);
+            direction.Normalize();
+            PowerMark.transform.position = gameObject.transform.position + (Vector3)(-direction * Mathf.Clamp(dragPower / 10.0f, 0f, 2f))
+                + new Vector3(0f, 0f, -1f);
         }
         if (Input.GetMouseButtonUp(0)) {
             Vector2 dragDirection = (clickPos - dragPos).normalized;
@@ -64,20 +86,35 @@ public class PlayerObject : MovingObject {
             dragPower = 0;
             clickPos = Vector2.zero;
             dragPos = Vector2.zero;
+            
+            SoundManager.Instance.PlaySFX(MoveSound);
+            PowerMark.SetActive(false);
         }
     }
     
     public override void DamageTo(int damage) {
-        base.DamageTo(damage);
+        if (superArmorTimer.IsDone) {
+            base.DamageTo(damage);
+        }
     }
     
     protected override void OnDamaged() {
-        base.OnDamaged();
+        if (superArmorTimer.IsDone) {
+            base.OnDamaged();
+            spriteRenderer.color = Color.red;
+            GameObject particleObject = Instantiate(DamageParticle, transform.position + new Vector3(0f, 0f, -0.1f),
+                Quaternion.identity);
+            Destroy(particleObject, 1.0f);
+            superArmorTimer.IsEnable = true;
+            SoundManager.Instance.PlaySFX(DamageSound);
+            UIManager.Instance.SetHpGauge(hp);
+        }
     }
     
     protected override void OnDead() {
         base.OnDead();
-        //Destroy(gameObject);
+        UIManager.Instance.SeeFailScreen();
+        Destroy(gameObject);
     }
     
     protected virtual void OnCollisionEnter2D(Collision2D collision) {
@@ -87,6 +124,12 @@ public class PlayerObject : MovingObject {
                 if (isAttacking) {
                     cameraController.Shake(Mathf.Clamp(velocity / 100f, 0f, 0.75f), 7f);
                     monsterObject.DamageTo(attackDamage);
+                    
+                    GameObject particleObject = Instantiate(DamageParticle, transform.position + new Vector3(0f, 0f, -0.1f),
+                        Quaternion.identity);
+                    Destroy(particleObject, 1.0f);
+                    
+                    SoundManager.Instance.PlaySFX(AttackSound);
                 }
             }
         }

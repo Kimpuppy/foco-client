@@ -32,9 +32,15 @@ namespace Jaeyun.SpawnBoss
 
 
         public List<SpawnMonster> SpawnMonsters => spawnMonsters;
-        
-        protected override IEnumerator PlayPattern()
-        {
+
+        protected override void Start() {
+            base.Start();
+            damage = 1;
+        }
+
+        protected override IEnumerator PlayPattern() {
+            base.PlayPattern();
+            
             StartPattern(startPattern);
             
             yield return null;
@@ -54,9 +60,8 @@ namespace Jaeyun.SpawnBoss
 
         protected override void OnDead()
         {
-            base.OnDead();
             _currentPattern.StopPattern();
-            Destroy(gameObject);
+            base.OnDead();
         }
 
         private void LateUpdate()

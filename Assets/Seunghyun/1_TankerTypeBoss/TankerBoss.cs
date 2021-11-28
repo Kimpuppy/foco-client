@@ -66,16 +66,12 @@ public class TankerBoss : BossObject
 
         curTimes = Time.realtimeSinceStartup;
         // 라이프 사이클 시작
+        damage = 1;
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
         base.OnCollisionEnter2D(collision);
-    }
-
-    protected override void OnDead()
-    {
-        Destroy(gameObject);
     }
 
 

@@ -14,7 +14,7 @@ namespace Jaeyun.SpawnBoss
 
         public bool IsActive => _isAcitve;
         
-        
+        public GhostSprite GhostSpriteObject;
 
         public void Activate()
         {

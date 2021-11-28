@@ -8,6 +8,7 @@ public class CoreObjectInfo : MonsterObjectInfo {
 
 public class CoreObject : MonsterObject {
     public LineRenderer LineObject;
+    public GameObject HealParticle;
     
     private int healAmount;
     public int HealAmount => healAmount;
@@ -24,24 +25,34 @@ public class CoreObject : MonsterObject {
 
     protected override void Start() {
         base.Start();
-        
+
         if (GameWorld.Instance.WorldBossObject != null) {
             if (GameWorld.Instance.WorldBossObject is CoreAttackBoss coreAttackBoss) {
                 targetBoss = coreAttackBoss;
             }
         }
-        LineObject.SetPosition(0, new Vector3(transform.position.x, transform.position.y, 1f));
-        LineObject.SetPosition(1, new Vector3(targetBoss.transform.position.x, targetBoss.transform.position.y, 1f));
         StartCoroutine(Heal());
+    }
+
+    protected override void Update() {
+        base.Update();
+
+        if (targetBoss != null) {
+            LineObject.SetPosition(0, new Vector3(transform.position.x, transform.position.y, 1f));
+            LineObject.SetPosition(1, new Vector3(targetBoss.transform.position.x, targetBoss.transform.position.y, 1f));
+        }
     }
 
     private IEnumerator Heal() {
         while (true) {
             if (targetBoss != null) {
+                GameObject particleObject = Instantiate(HealParticle, targetBoss.transform.position + new Vector3(0f, 0f, -0.1f),
+                    Quaternion.identity);
+                Destroy(particleObject, 1.0f);
                 targetBoss.HealTo(healAmount);
             }
             
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.0f);
         }
     }
 

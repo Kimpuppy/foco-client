@@ -13,6 +13,7 @@ public class FloatingBoss : BossObject {
     
     protected override void Start() {
         base.Start();
+        damage = 1;
         StartCoroutine(Move());
     }
     
@@ -55,10 +56,5 @@ public class FloatingBoss : BossObject {
             transform.Translate(direction * MoveSpeed * Time.deltaTime);
             yield return null;
         }
-    }
-    
-    protected override void OnDead() {
-        base.OnDead();
-        Destroy(gameObject);
     }
 }

@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2163953849279413358}
   - component: {fileID: 2163953849279413359}
   - component: {fileID: 2163953849279413352}
+  - component: {fileID: 4120255705584327736}
   m_Layer: 0
   m_Name: Spawn Monster (6)
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,6 +49,7 @@ MonoBehaviour:
   hp: 3
   collider: {fileID: 2163953849279413359}
   spriteRenderer: {fileID: 2163953849279413352}
+  GhostSpriteObject: {fileID: 4120255705584327736}
 --- !u!58 &2163953849279413359
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -115,6 +117,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4120255705584327736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163953849279413354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f319626f57d045458002acba6640615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsEnable: 0
+  IsSolid: 1
+  IsShake: 0
+  SpriteColor: {r: 1, g: 0.051886797, b: 0.051886797, a: 1}
+  DrawTime: 0.01
+  ShakeAmount: 0.1
+  ScaleFactor: 20
 --- !u!1 &2163953849598817682
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,9 +148,10 @@ GameObject:
   - component: {fileID: 2163953849598817686}
   - component: {fileID: 2163953849598817687}
   - component: {fileID: 2163953849598817680}
+  - component: {fileID: 3467627403301232018}
   m_Layer: 0
   m_Name: Spawn Monster (7)
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,6 +185,7 @@ MonoBehaviour:
   hp: 3
   collider: {fileID: 2163953849598817687}
   spriteRenderer: {fileID: 2163953849598817680}
+  GhostSpriteObject: {fileID: 3467627403301232018}
 --- !u!58 &2163953849598817687
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -230,6 +253,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3467627403301232018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163953849598817682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f319626f57d045458002acba6640615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsEnable: 0
+  IsSolid: 1
+  IsShake: 0
+  SpriteColor: {r: 1, g: 0.051886797, b: 0.051886797, a: 1}
+  DrawTime: 0.01
+  ShakeAmount: 0.1
+  ScaleFactor: 20
 --- !u!1 &2163953849811270720
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,9 +284,10 @@ GameObject:
   - component: {fileID: 2163953849811270724}
   - component: {fileID: 2163953849811270725}
   - component: {fileID: 2163953849811270726}
+  - component: {fileID: 3471148960780877195}
   m_Layer: 0
   m_Name: Spawn Monster (1)
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,6 +321,7 @@ MonoBehaviour:
   hp: 3
   collider: {fileID: 2163953849811270725}
   spriteRenderer: {fileID: 2163953849811270726}
+  GhostSpriteObject: {fileID: 3471148960780877195}
 --- !u!58 &2163953849811270725
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -345,6 +389,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3471148960780877195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163953849811270720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f319626f57d045458002acba6640615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsEnable: 0
+  IsSolid: 1
+  IsShake: 0
+  SpriteColor: {r: 1, g: 0.051886797, b: 0.051886797, a: 1}
+  DrawTime: 0.01
+  ShakeAmount: 0.1
+  ScaleFactor: 20
 --- !u!1 &2163953849974492592
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,9 +420,10 @@ GameObject:
   - component: {fileID: 2163953849974492596}
   - component: {fileID: 2163953849974492597}
   - component: {fileID: 2163953849974492598}
+  - component: {fileID: 5884776959761770686}
   m_Layer: 0
   m_Name: Spawn Monster (4)
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -393,6 +457,7 @@ MonoBehaviour:
   hp: 3
   collider: {fileID: 2163953849974492597}
   spriteRenderer: {fileID: 2163953849974492598}
+  GhostSpriteObject: {fileID: 5884776959761770686}
 --- !u!58 &2163953849974492597
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -460,6 +525,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5884776959761770686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163953849974492592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f319626f57d045458002acba6640615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsEnable: 0
+  IsSolid: 1
+  IsShake: 0
+  SpriteColor: {r: 1, g: 0.051886797, b: 0.051886797, a: 1}
+  DrawTime: 0.01
+  ShakeAmount: 0.1
+  ScaleFactor: 20
 --- !u!1 &2163953850071050338
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,9 +556,10 @@ GameObject:
   - component: {fileID: 2163953850071050342}
   - component: {fileID: 2163953850071050343}
   - component: {fileID: 2163953850071050336}
+  - component: {fileID: 3963187510768108101}
   m_Layer: 0
   m_Name: Spawn Monster (3)
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -508,6 +593,7 @@ MonoBehaviour:
   hp: 3
   collider: {fileID: 2163953850071050343}
   spriteRenderer: {fileID: 2163953850071050336}
+  GhostSpriteObject: {fileID: 3963187510768108101}
 --- !u!58 &2163953850071050343
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -575,6 +661,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3963187510768108101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163953850071050338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f319626f57d045458002acba6640615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsEnable: 0
+  IsSolid: 1
+  IsShake: 0
+  SpriteColor: {r: 1, g: 0.051886797, b: 0.051886797, a: 1}
+  DrawTime: 0.01
+  ShakeAmount: 0.1
+  ScaleFactor: 20
 --- !u!1 &2163953850215052596
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,9 +692,10 @@ GameObject:
   - component: {fileID: 2163953850215052586}
   - component: {fileID: 2163953850215052584}
   - component: {fileID: 2163953850215052585}
+  - component: {fileID: 1189712810376916758}
   m_Layer: 0
   m_Name: Spawn Monster
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -623,6 +729,7 @@ MonoBehaviour:
   hp: 3
   collider: {fileID: 2163953850215052584}
   spriteRenderer: {fileID: 2163953850215052585}
+  GhostSpriteObject: {fileID: 1189712810376916758}
 --- !u!58 &2163953850215052584
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -690,6 +797,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1189712810376916758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163953850215052596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f319626f57d045458002acba6640615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsEnable: 0
+  IsSolid: 1
+  IsShake: 0
+  SpriteColor: {r: 1, g: 0.051886797, b: 0.051886797, a: 1}
+  DrawTime: 0.01
+  ShakeAmount: 0.1
+  ScaleFactor: 20
 --- !u!1 &2163953850282691128
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,9 +866,10 @@ GameObject:
   - component: {fileID: 2163953850569469832}
   - component: {fileID: 2163953850569469833}
   - component: {fileID: 2163953850569469834}
+  - component: {fileID: 8802069276990735732}
   m_Layer: 0
   m_Name: Spawn Monster (5)
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -776,6 +903,7 @@ MonoBehaviour:
   hp: 3
   collider: {fileID: 2163953850569469833}
   spriteRenderer: {fileID: 2163953850569469834}
+  GhostSpriteObject: {fileID: 8802069276990735732}
 --- !u!58 &2163953850569469833
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -843,6 +971,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8802069276990735732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163953850569469844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f319626f57d045458002acba6640615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsEnable: 0
+  IsSolid: 1
+  IsShake: 0
+  SpriteColor: {r: 1, g: 0.051886797, b: 0.051886797, a: 1}
+  DrawTime: 0.01
+  ShakeAmount: 0.1
+  ScaleFactor: 20
 --- !u!1 &2163953850631063408
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,7 +1007,7 @@ GameObject:
   - component: {fileID: 2163953850631063401}
   m_Layer: 0
   m_Name: SpawnBoss
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1052,9 +1199,10 @@ GameObject:
   - component: {fileID: 2163953851100768738}
   - component: {fileID: 2163953851100768739}
   - component: {fileID: 2163953851100768748}
+  - component: {fileID: 4963812865039958485}
   m_Layer: 0
   m_Name: Spawn Monster (2)
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1088,6 +1236,7 @@ MonoBehaviour:
   hp: 3
   collider: {fileID: 2163953851100768739}
   spriteRenderer: {fileID: 2163953851100768748}
+  GhostSpriteObject: {fileID: 4963812865039958485}
 --- !u!58 &2163953851100768739
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1155,3 +1304,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4963812865039958485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163953851100768750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f319626f57d045458002acba6640615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsEnable: 0
+  IsSolid: 1
+  IsShake: 0
+  SpriteColor: {r: 1, g: 0.051886797, b: 0.051886797, a: 1}
+  DrawTime: 0.01
+  ShakeAmount: 0.1
+  ScaleFactor: 20

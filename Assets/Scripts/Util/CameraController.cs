@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour {
 
     private float angleAmount = 0.0f;
 
-    private float scaleAmount = 1.0f;
+    //private float scaleAmount = 1.0f;
 
     private void Start() {
         cameraObject = GetComponent<Camera>();
@@ -37,7 +37,7 @@ public class CameraController : MonoBehaviour {
         transform.position = anchorPoint + Offset + shakeVec;
         
         transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, new Vector3(0.0f, 0.0f, angleAmount), 5.0f * Time.deltaTime);
-        cameraObject.orthographicSize = Mathf.Lerp(cameraObject.orthographicSize, Scale * scaleAmount, 5.0f * Time.deltaTime);
+        //cameraObject.orthographicSize = Mathf.Lerp(cameraObject.orthographicSize, Scale * scaleAmount, 5.0f * Time.deltaTime);
     }
 
     public void Shake(float power, float amount, bool xshake = true, bool yshake = true) {
@@ -56,7 +56,7 @@ public class CameraController : MonoBehaviour {
     }
 
     public void SetScale(float scale) {
-        scaleAmount = scale;
+        //scaleAmount = scale;
     }
 
     public void Scaling(float scale) {

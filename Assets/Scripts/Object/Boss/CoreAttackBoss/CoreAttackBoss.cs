@@ -18,6 +18,7 @@ public class CoreAttackBoss : BossObject {
 
     protected override void Start() {
         base.Start();
+        damage = 1;
         SpawnCoreObject();
         StartCoroutine(CheckCoreObject());
     }
@@ -29,7 +30,7 @@ public class CoreAttackBoss : BossObject {
             MonsterObject monsterObject = GameWorld.Instance.SpawnMonster(CoreObjectPrefab, CoreObjectSpawnPosition[i]);
             if (monsterObject is CoreObject coreObject) {
                 coreObject.Init(new CoreObjectInfo {
-                    Damage = 1,
+                    Damage = 0,
                     HealAmount = 1,
                     Hp = 5,
                 });
@@ -95,10 +96,5 @@ public class CoreAttackBoss : BossObject {
             }
             yield return new WaitForSeconds(1.0f);
         }
-    }
-    
-    protected override void OnDead() {
-        base.OnDead();
-        Destroy(gameObject);
     }
 }
