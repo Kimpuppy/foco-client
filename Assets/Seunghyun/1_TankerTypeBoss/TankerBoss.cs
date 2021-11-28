@@ -9,28 +9,33 @@ public class TankerBoss : BossObject
 {
     // Range Ratio 0 ~ 1
     private float DEFENSE_RATIO = 0.5f;
+
     // 피격 판정 오브젝트가 소환될 높이
     private float RAIN_OFFSET_Y = 0.5f;
     private float FALL_SPEED = 5.0f;
-    
+
     [SerializeField] private GameObject ironPrefab;
     [SerializeField] private GameObject confineLine;
     [SerializeField] private GameObject lineAttackPrefab;
     [SerializeField] private GameObject invincibilityIcon;
-    
+
     [SerializeField] private float pushOutRange;
     private ConfineLineHandler confineLineHandler;
-    
+
     protected PlayerObject player;
 
     [SerializeField] private GameObject pushEffect;
 
-    private enum BuffType { None, Invincibility };
+    private enum BuffType
+    {
+        None,
+        Invincibility
+    };
 
     private BuffType curBuffType;
     private bool invincibility = false;
     private float defenseRatio = 0.0f;
-    
+
 
     [SerializeField] private float spawnHeight;
 
@@ -39,26 +44,26 @@ public class TankerBoss : BossObject
     private float curTimes = 0;
 
     private SpriteRenderer spriteRenderer;
-    
+
     protected void Start()
     {
-        
+
         base.Start();
         spriteRenderer = GetComponent<SpriteRenderer>();
         player = FindObjectOfType<PlayerObject>();
 
         //confineLineHandler = confineLine.GetComponent<ConfineLineHandler>();
-        
-        
+
+
 
         curTime = Time.realtimeSinceStartup;
-        
-        
+
+
         //StartCoroutine(LineCreateCycle(1, 13, 5));
 
 
         idleTime = Random.Range(2.0f, 5.0f);
-    
+
         curTimes = Time.realtimeSinceStartup;
         // 라이프 사이클 시작
     }
@@ -67,8 +72,8 @@ public class TankerBoss : BossObject
     {
         base.OnCollisionEnter2D(collision);
     }
-    
-    protected override void OnDead() 
+
+    protected override void OnDead()
     {
         Destroy(gameObject);
     }
@@ -86,26 +91,27 @@ public class TankerBoss : BossObject
     };
 
     [SerializeField] private AttackPattern curAttackPattern = AttackPattern.Drop;
-    
+
     public bool patternEnd = true;
     public bool idleState = false;
     public bool actionPattern = false;
     private bool attackPattern = false;
-    
+
 
     protected override void Update()
     {
         base.Update();
-        
+
         Vector2 moveDirection = SpriteFlip() ? Vector2.right : Vector2.left;
 
         if (attackPattern == false)
         {
             transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+            
         }
-        
+
         if (Time.realtimeSinceStartup - curTimes >= idleTime)
-        {
+        {       invincibilityIcon.SetActive(false);  
             attackPattern = true;
 
             switch (curAttackPattern)
@@ -123,10 +129,14 @@ public class TankerBoss : BossObject
                     break;
                 case AttackPattern.Buff:
                     HealTo(10);
+           
+                    //StopCoroutine(Heals());
+                    //StartCoroutine(Heals());
                     //StopCoroutine(ActiveBuff(BuffType.None, 0));
                     //StartCoroutine(ActiveBuff(BuffType.Invincibility, Random.Range(34, 8)));
                     idleTime = Random.Range(2.0f, 5.0f);
                     attackPattern = false;
+                    invincibilityIcon.SetActive(true);
                     break;
             }
 
@@ -134,7 +144,7 @@ public class TankerBoss : BossObject
             curTimes = Time.realtimeSinceStartup;
         }
     }
-    
+
     private bool SpriteFlip()
     {
         bool flip = player.transform.position.x >= transform.position.x;
@@ -143,7 +153,16 @@ public class TankerBoss : BossObject
         return flip;
     }
 
-    /// <summary>
+    private IEnumerator Heals()
+    {
+        invincibilityIcon.SetActive(true);
+
+        yield return new WaitForSeconds(3.0f);
+        
+        invincibilityIcon.SetActive(false);
+    }
+
+/// <summary>
     /// 버프를 활성화합니다.
     /// </summary>
     /// <param name="buffType">버프 타입</param>
