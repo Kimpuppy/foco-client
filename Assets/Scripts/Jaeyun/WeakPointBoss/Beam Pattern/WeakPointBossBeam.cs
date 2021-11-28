@@ -128,17 +128,17 @@ namespace Jaeyun
         {
             var rayCastDir = transform.right;
             var hit = Physics2D.Raycast(transform.position, rayCastDir, 100, beamCollisionMask);
-            aimLine.SetPosition(0, transform.position);
+            aimLine.SetPosition(0, transform.position + new Vector3(0f, 0f, 1f));
             if (hit)
             {
                 var dist = hit.distance;
                 beamCollider.localScale = new Vector3(dist, 1, 1);
-                aimLine.SetPosition(1, hit.point);
+                aimLine.SetPosition(1, (Vector3)hit.point + new Vector3(0f, 0f, 1f));
             }
             else
             {
                 beamCollider.localScale = new Vector3(100, 1, 1);
-                aimLine.SetPosition(1, transform.position + rayCastDir * 100);
+                aimLine.SetPosition(1, (transform.position + rayCastDir * 100) + new Vector3(0f, 0f, 1f));
             }
 
             beamCollider.localPosition = new Vector3(beamCollider.localScale.x * .5f, 0, 0);

@@ -19,6 +19,10 @@ public class PlayerObject : MovingObject {
     
     private int attackDamage = 1;
     public int AttackDamage => attackDamage;
+
+    private CameraController cameraController;
+
+    private SpriteRenderer spriteRenderer;
     
     public override void Init(ObjectInfo objectInfo) {
         base.Init(objectInfo);
@@ -30,6 +34,8 @@ public class PlayerObject : MovingObject {
     
     protected override void Start() {
         base.Start();
+        cameraController = Camera.main.GetComponent<CameraController>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     
     protected override void Update() {
@@ -39,6 +45,7 @@ public class PlayerObject : MovingObject {
         
         velocity = rigidbody.velocity.magnitude;
         isAttacking = (velocity > GameConstants.PLAYER_ATTACK_VELOCITY) ? true : false;
+        spriteRenderer.flipX = (rigidbody.velocity.x < 0f) ? true : false;
     }
     
     private void Move() {
@@ -78,6 +85,7 @@ public class PlayerObject : MovingObject {
             MonsterObject monsterObject = collision.gameObject.GetComponent<MonsterObject>();
             if (monsterObject != null) {
                 if (isAttacking) {
+                    cameraController.Shake(Mathf.Clamp(velocity / 100f, 0f, 0.75f), 7f);
                     monsterObject.DamageTo(attackDamage);
                 }
             }

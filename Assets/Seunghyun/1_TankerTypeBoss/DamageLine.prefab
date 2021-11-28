@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3649298857221601407}
   - component: {fileID: 1501534007278359865}
   - component: {fileID: 1728798617}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DamageLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.495283, g: 0.78271496, b: 1, a: 1}
+  m_Color: {r: 0.5, g: 0.18431392, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
