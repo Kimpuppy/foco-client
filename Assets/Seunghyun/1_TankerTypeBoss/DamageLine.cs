@@ -22,14 +22,12 @@ public class DamageLine : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-
-            if (other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
             {
                 if(other.TryGetComponent(out PlayerObject playerObject))
                 {
                     playerObject.DamageTo(lineDamage);
                 }
             }
-        
     }
 }

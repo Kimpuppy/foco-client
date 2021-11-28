@@ -8,7 +8,7 @@ public class ConfineLineHandler : MonoBehaviour
 {
      [SerializeField] private ConfineLine[] confineLines;
      [SerializeField] private float lerpSpeed = 1.0f;
-     [SerializeField] private float spaceLine = 1.1f;
+     [SerializeField] private float spaceLine = 8f;
      
      public ConfineLine[] GetConFineLines() => confineLines;
      public GameObject LineObject;
@@ -22,7 +22,7 @@ public class ConfineLineHandler : MonoBehaviour
      {
           for (int i = 0; i < confineLines.Length; i++)
           {
-               confineLines[i].InActive();
+               Destroy(confineLines[i].transform.gameObject);
           }
      }
 
@@ -75,7 +75,5 @@ public class ConfineLineHandler : MonoBehaviour
 
                yield return null;
           }
-          
-          Debug.Log("종료");
      }
 }

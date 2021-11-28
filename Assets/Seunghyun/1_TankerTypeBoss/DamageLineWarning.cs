@@ -8,7 +8,12 @@ public class DamageLineWarning : MonoBehaviour
 
     private void Start()
     {
-        Instantiate(damageLine, transform.position, Quaternion.identity);
+        Invoke(nameof(OnDamageLine), 0.5f);
     }
 
+    private void OnDamageLine()
+    {
+        Instantiate(damageLine, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
 }

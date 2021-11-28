@@ -9,7 +9,7 @@ public class ConfineLine : MonsterObject
     {
         base.Start();
         
-        Init(new MovingObjectInfo() { Hp = 15 });
+        Init(new MovingObjectInfo() { Hp = 3 });
     }
 
     public override void Init(ObjectInfo movingObjectInfo)
@@ -20,8 +20,13 @@ public class ConfineLine : MonsterObject
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
         base.OnCollisionEnter2D(collision);
+        
     }
-
+    
+    private void Destory()
+    {
+        
+    }
     public void InActive()
     {
         
