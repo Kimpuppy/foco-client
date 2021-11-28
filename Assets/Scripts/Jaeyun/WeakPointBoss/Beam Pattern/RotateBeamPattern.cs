@@ -31,9 +31,9 @@ namespace Jaeyun
         {
             for (int i = 0; i < rotationCount; i++)
             {
-                await _beam.ActiveBeam();
-                await _beam.RotateBeam(rotationSpeed).ToUniTask();
-                await _beam.DeActivateBeam();
+                // await _beam.ActiveBeam();
+                // await _beam.RotateBeam(rotationSpeed).ToUniTask();
+                // await _beam.DeActivateBeam();
                 await UniTask.Delay(TimeSpan.FromSeconds(attackDelay));
             }
             

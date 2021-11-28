@@ -7,9 +7,11 @@ public class CoreObjectInfo : MonsterObjectInfo {
 }
 
 public class CoreObject : MonsterObject {
+    public LineRenderer LineObject;
+    
     private int healAmount;
     public int HealAmount => healAmount;
-
+    
     private CoreAttackBoss targetBoss = null;
     
     public override void Init(ObjectInfo objectInfo) {
@@ -28,7 +30,8 @@ public class CoreObject : MonsterObject {
                 targetBoss = coreAttackBoss;
             }
         }
-        
+        LineObject.SetPosition(0, new Vector3(transform.position.x, transform.position.y, 1f));
+        LineObject.SetPosition(1, new Vector3(targetBoss.transform.position.x, targetBoss.transform.position.y, 1f));
         StartCoroutine(Heal());
     }
 

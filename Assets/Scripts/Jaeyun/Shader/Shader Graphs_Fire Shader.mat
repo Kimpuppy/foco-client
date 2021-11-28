@@ -38,7 +38,7 @@ Material:
     m_Floats:
     - Pixel_size: 80
     m_Colors:
-    - Fire_Color: {r: 7.9066987, g: 0.9107192, b: 0, a: 0}
+    - Fire_Color: {r: 0.007938173, g: 7.9066987, b: 0, a: 0}
     - Noise_Scroll_Speed_1: {r: 0.1, g: -0.5, b: 0, a: 0}
     - Noise_Scroll_Speed_2: {r: 0.3, g: -0.4, b: 0, a: 0}
     - Noise_Tiling_1: {r: 0.7, g: 0.8, b: 0, a: 0}

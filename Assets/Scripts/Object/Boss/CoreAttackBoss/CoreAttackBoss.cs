@@ -10,9 +10,12 @@ public class CoreAttackBoss : BossObject {
     public float SpawnCoreObjectDelay = 10.0f;
     public GameObject CoreObjectPrefab;
     
+    public GameObject SpriteObject;
+    public Animator SpriteAnimator;
+    
     private List<GameObject> coreObjectList = new List<GameObject>();
     private bool isCoreDestroyed = false;
-    
+
     protected override void Start() {
         base.Start();
         SpawnCoreObject();
@@ -48,13 +51,30 @@ public class CoreAttackBoss : BossObject {
                 targetPosition = DefaultPosition;
             }
             
+            Vector2 direction = targetPosition - nowPosition;
+            direction.Normalize();
+            
             float targetDistance = Vector2.Distance(targetPosition, nowPosition);
             if (targetDistance > 0.1f) {
-                Vector2 direction = targetPosition - nowPosition;
-                direction.Normalize();
+                if (SpriteAnimator.GetBool("IsMoving") == false) {
+                    SpriteAnimator.SetBool("IsMoving", true);
+                }
+                
                 transform.Translate(direction * MoveSpeed * Time.deltaTime);
             }
+            else {
+                if (SpriteAnimator.GetBool("IsMoving")) {
+                    SpriteAnimator.SetBool("IsMoving", false);
+                }
+            }
             
+            if (direction.x < 0f) {
+                SpriteObject.transform.localScale = new Vector3(1f, 1f, 1f);
+            }
+            else {
+                SpriteObject.transform.localScale = new Vector3(-1f, 1f, 1f);
+            }
+
             yield return null;
         }
     }

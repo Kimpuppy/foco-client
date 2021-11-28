@@ -44,12 +44,10 @@ public class TankerBoss : BossObject
     {
         
         base.Start();
-        Init(new MovingObjectInfo( ) {Hp = 30});
-        
         spriteRenderer = GetComponent<SpriteRenderer>();
         player = FindObjectOfType<PlayerObject>();
 
-        confineLineHandler = confineLine.GetComponent<ConfineLineHandler>();
+        //confineLineHandler = confineLine.GetComponent<ConfineLineHandler>();
         
         
 
@@ -271,7 +269,7 @@ public class TankerBoss : BossObject
     {
         var createPos = player.transform.position;
 
-        confineLineHandler.ActiveLine(createPos);
+        //confineLineHandler.ActiveLine(createPos);
     }
 
     /// <summary>
